@@ -30,13 +30,10 @@ install:
 before_script:
   - psql -c 'CREATE DATABASE integrada_test;' -U postgres
   - pg_restore -h localhost -p 5432 -U postgres -d old_db -v "common/db_test/Integrada_19092019.backup"
-  #- php yii_test migrate --interactive=0
+
 
 script:
   - composer validate --strict
   - composer outdated --direct
   - composer status --verbose
   - vendor/bin/codecept run -v
-  
-#after_success:
-#after_failure:
