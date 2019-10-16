@@ -16,4 +16,5 @@ script:
 - composer validate --strict
 - composer outdated --direct
 - composer status --verbose
-- vendor/bin/codecept run -v
+- cd $TRAVIS_BUILD_DIR/frontend
+- ../vendor/bin/codecept run -v
