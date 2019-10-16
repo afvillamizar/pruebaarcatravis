@@ -45,12 +45,16 @@
         "uran1980/yii2-pace-widget": "dev-master"
     },
     "config": {
+	    "fxp-asset": {
+			  "installer-paths": {
+				"npm-asset-library": "vendor/npm",
+				"bower-asset-library": "vendor/bower"
+			  }
+			},
         "process-timeout": 1800
     },
     "extra": {
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
+        
         }
     },
     "scripts": {
