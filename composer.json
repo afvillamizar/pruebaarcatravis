@@ -54,8 +54,7 @@
         "process-timeout": 1800
     },
     "extra": {
-        
-        }
+
     },
     "scripts": {
         "post-install-cmd": "php init --env=Development --overwrite=n"
