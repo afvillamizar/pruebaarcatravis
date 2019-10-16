@@ -5,3 +5,19 @@ sudo: false
 services: postgresql
 cache:
 directories: $HOME/.composer/cache
+install:
+- travis_retry composer self-update && composer --version
+- travis_retry composer update --dev --prefer-dist --no-interaction
+- |
+./init --env=Development
+sed -i s/root/travis/ common/config/main-local.php
+sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => 'testkey'/" frontend/config/main.php
+sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => 'testkey'/" backend/config/main.php
+before_script:
+- psql -c 'CREATE DATABASE integrada_test;' -U postgres
+- pg_restore -h localhost -p 5432 -U postgres -d old_db -v "common/db_test/Integrada_19092019.backup"
+script:
+- composer validate --strict
+- composer outdated --direct
+- composer status --verbose
+- vendor/bin/codecept run -v
