@@ -6,6 +6,7 @@ services: postgresql
 cache:
 directories: $HOME/.composer/cache
 before_install:
+  - composer self-update --rollback 
   - composer global require "fxp/composer-asset-plugin:1.*"
   - composer self-update 
 install:
