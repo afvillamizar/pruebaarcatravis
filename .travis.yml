@@ -8,12 +8,11 @@ directories: $HOME/.composer/cache
 install:
   - travis_retry composer self-update && composer --version
   - travis_retry composer global require "fxp/composer-asset-plugin:~1.4"
-
+  - travis_retry composer update --prefer-dist --no-interaction
 before_script:
 - psql -c 'CREATE DATABASE integrada_test;' -U postgres
 - pg_restore -h localhost -p 5432 -U postgres -d integrada_test -v "common/db_test/Integrada_19092019.backup"
 script:
-- composer update
 - composer validate --strict
 - composer outdated --direct
 - composer status --verbose
