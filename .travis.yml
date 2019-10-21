@@ -1,18 +1,16 @@
 language: php
+env:
+  global:
+    - DEFAULT_COMPOSER_FLAGS="--prefer-dist --no-interaction --no-progress --optimize-autoloader"
 php:
 - 5.6
 services: postgresql
 cache:
 directories: $HOME/.composer/cache
-before_install:
-  - composer self-update --rollback 
-
 install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - travis_retry composer install $DEFAULT_COMPOSER_FLAGS
   - travis_retry composer global require "fxp/composer-asset-plugin:1.*"
-  - travis_retry composer self-update 
-  - travis_retry composer update --prefer-dist --no-interaction
+  - travis_retry composer install $DEFAULT_COMPOSER_FLAGS
 before_script:
 - psql -c 'CREATE DATABASE integrada_test;' -U postgres
 - pg_restore -h localhost -p 5432 -U postgres -d integrada_test -v "common/db_test/Integrada_19092019.backup"
