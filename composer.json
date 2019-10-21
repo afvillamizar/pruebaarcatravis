@@ -52,7 +52,13 @@
 				"bower-asset-library": "vendor/bower"
 			  }
 			},
-        "process-timeout": 1800
+        "process-timeout": 1800,
+		"http-basic": {
+            "www.phpclasses.org": {
+                "username": "andrsfelipev",
+                "password": "b07d39bfa854294a1448a4479b53ad45"
+            }
+        }
     },
     "extra": {
 
@@ -60,11 +66,10 @@
     "scripts": {
         "post-install-cmd": "php init --env=Development --overwrite=n"
     },
+	
     "repositories":[
     {
 	
-      "user": "andrsfelipev",
-	  "password": "b07d39bfa854294a1448a4479b53ad45",
 	  "type": "composer",
       "url": "https:\/\/www.phpclasses.org\/"
     },
