@@ -17,4 +17,4 @@ before_script:
 script:
 - composer validate --strict
 - composer outdated --direct
-- codecept run -c backend
+- vendor/bin/codecept run -c backend
