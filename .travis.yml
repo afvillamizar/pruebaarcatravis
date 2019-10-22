@@ -17,4 +17,4 @@ before_script:
 script:
 - composer validate --with-dependencies
 - composer outdated --direct
-- codecept run -v
+- ./vendor/bin/codecept run
