@@ -19,4 +19,4 @@ script:
 - composer outdated --direct
 - cd $TRAVIS_BUILD_DIR/backend
 - ls ../vendor/bin
-- codecept run -c backend
+- codecept run -v
