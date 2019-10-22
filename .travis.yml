@@ -15,6 +15,8 @@ before_script:
 - psql -c 'CREATE DATABASE integrada_test;' -U postgres
 - pg_restore -h localhost -p 5432 -U postgres -d integrada_test -v "common/db_test/Integrada_19092019.backup"
 script:
-- composer validate --strict
+- composer validate --direct
 - composer outdated --direct
-- vendor/bin/codecept run -c backend
+- cd $TRAVIS_BUILD_DIR/backend
+- ls ../vendor/bin
+- codecept run -c backend
