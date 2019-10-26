@@ -18,5 +18,5 @@ before_script:
 script:
 - travis_wait composer validate
 - travis_wait composer outdated --direct
-- sudo chmod 777 ./vendor/bin/codecept
-- travis_wait ./vendor/bin/codecept run
+- sudo chmod 777 vendor/bin/codecept
+- travis_wait vendor/bin/codecept run
