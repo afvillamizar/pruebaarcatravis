@@ -19,4 +19,4 @@ script:
 - travis_wait composer validate
 - travis_wait composer outdated --direct
 - sudo chmod +x ./vendor/bin/codecept
-- travis_wait ./vendor/bin/codecept run -v
+- travis_wait ./vendor/bin/codecept run
