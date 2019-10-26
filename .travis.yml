@@ -11,6 +11,7 @@ install:
   - export PATH="$HOME/.composer/vendor/bin:$TRAVIS_BUILD_DIR/vendor/bin:$PATH"
   - travis_retry composer global require "fxp/composer-asset-plugin:1.*"
   - travis_retry composer update $DEFAULT_COMPOSER_FLAGS
+  - phpunit --version
 before_script:
 - psql -c 'CREATE DATABASE integrada_test;' -U postgres
 - pg_restore -h localhost -p 5432 -U postgres -d integrada_test -v "common/db_test/Integrada_19092019.backup"
