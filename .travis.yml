@@ -17,4 +17,4 @@ before_script:
 script:
 - travis_wait composer validate
 - travis_wait composer outdated --direct
-- travis_wait ./vendor/bin/codecept run -v
+- travis_wait ./vendor/bin/codecept run
